@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<style>
+           @import url(https://fonts.googleapis.com/css?family=Sniglet|Raleway:900);
+
+
+body, html{
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: 'Sniglet', cursive;
+}
+</style>
+    <title>Document</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/{{admin_name}}/summary"><strong>{{admin_name}}</strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse show" id="navbarBasic">
+            <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+              <!-- <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/{{name}}/create_venue"><strong>Create New Venue</strong> </a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="/log_out"><strong>Log Out</strong></a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li> -->
+            </ul>
+            <!-- <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+          </div>
+        </div>
+      </nav>
+
+
+
+    <form action="/{{admin_name}}/{{venue_id}}/edit_venue" method="post" class="mb-3 mt-3">
+        <h4><label for="username" class="form-label ">Venue Name:</label></h4>
+
+        <div class="form-floating mb-3 mt-3">   
+                 <input type="text" name="venue_name" placeholder="Venue Name" id="venue_name" class="form-control"  value = {{venue_name}}>
+                 <label for="venue_name" class="form-label"> {{venue_name}}</label>
+
+        </div>
+
+        <h4><label for="username" class="form-label ">Venue place:</label></h4>
+        <div class="form-floating mb-3 mt-3">    
+                <input type="text" name="venue_place" placeholder="Venue place" id="venue_place"  class="form-control" value= {{venue_place}} >
+                <label for="venue_place" class="form-label">{{venue_place}}</label>
+
+        </div>
+
+        <h4><label for="username" class="form-label ">Venue Location:</label></h4>
+        <div class="form-floating mb-3 mt-3">     
+               <input type="text" name="venue_location" placeholder="Venue Location" id="venue_location" class="form-control" value = {{venue_location}}>
+               <label for="venue_location" class="form-label">{{venue_location}}</label>
+
+        </div>
+
+        <h4><label for="username" class="form-label ">Venue Capacity:</label></h4>
+        <div class="form-floating mb-3 mt-3">  
+                  <input type="number" name="venue_capacity" id="venue_capacity" placeholder="Venue Capacity" class="form-control" value = {{venue_capacity | int}}>
+                  <label for="venue_capacity" class="form-label">{{venue_capacity}}</label>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Edit Venue</button>
+    </form>
+
+
+    <!-- <h1>{{name}}</h1>
+    <form action="/{{name}}/create_venue" method="post">
+
+        <input type="text" name="venue_name" placeholder="Venue Name" id="" required>
+        <input type="text" name="venue_place" placeholder="Venue Place" id="" required>
+        <input type="text" name="venue_location" placeholder="Venue Location" id="" required>
+        <input type="number" name="venue_capacity" placeholder="Venue Capacity" id="" required>
+        <button type="submit">Create</button>
+
+
+    </form> -->
+</body>
+</html>

@@ -1,0 +1,17 @@
+Flask
+Flask-Bootstrap
+Flask-Login
+Flask-RESTful
+Flask-Security
+Flask-SQLAlchemy
+Flask-WTF
+Flask-Bcrypt
+Jinja2
+matplotlib
+matplotlib-inline
+notebook
+numpy
+pandas
+requests
+Resource
+SQLAlchemy

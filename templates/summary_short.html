@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+                 @import url(https://fonts.googleapis.com/css?family=Sniglet|Raleway:900);
+
+
+body, html{
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: 'Sniglet', cursive;
+}
+        </style>
+    </head>
+    <body>
+
+
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/{{admin_name}}/summary"><strong>{{admin_name}}</strong></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse show" id="navbarBasic">
+                <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                  <li class="nav-item">
+                    <a class="nav-link active text-success" aria-current="page" href="/{{admin_name}}/create_venue"><strong>Create New Venue</strong> </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/{{admin_name}}/venue_list_admin"><strong>Go Back to Venues</strong></a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="/log_out"><strong>Log Out</strong></a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                  </li> -->
+                </ul>
+                <!-- <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+              </div>
+            </div>
+          </nav>
+
+
+                 <h1  class="d-flex justify-content-center"><mark class="text-success">SUMMARY</mark> </h1>
+          
+
+          <div class="d-flex justify-content-between">
+
+
+            <div class="card bg-info text-white d-inline-flex p-2 ">
+              <div class="card-body" >          <h4><strong>Total Venues :</strong> {{total_venues}}</h4></div>
+            </div>
+            <div class="card bg-warning text-white d-inline-flex p-2">
+              <div class="card-body" >          <h4><strong>Total Shows : </strong>{{total_shows}}</h4>
+              </div>
+            </div>
+            <div class="card bg-info text-white d-inline-flex p-2">
+              <div class="card-body" style="max-width: fit-content;">          <h4><strong>Total Bookings : </strong>{{total_bookings}}</h4>
+              </div>
+            </div>
+            <div class="card bg-warning text-white d-inline-flex p-2">
+              <div class="card-body" >          <h4><strong>Total Revenue : </strong>{{total_revenue}}</h4>
+              </div>
+            </div>
+            <div class="card bg-info text-white d-inline-flex p-2" >
+              <div class="card-body" >     <h4><strong>Total Persons : </strong>{{total_person}}</h4>
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+          <br>
+
+          <div class="alert alert-info" role="alert">
+            
+<h5>Need more then 5 venue and shows for more insights.</h6>
+          </div>
+<!-- <h1>THis is SUmmary Short Page.</h1>
+<h2>Admin:{{admin_name}}</h2>
+<h2>total_venues::{{total_venues}}</h2>
+<h2>total_shows :: {{total_shows}}</h2>
+<h2>total_bookings :: {{total_bookings}}</h2>
+<h2>total_revenue :: {{total_revenue}}</h2>
+<h2>total_person :: {{total_person}}</h2>
+
+<h6>Need more then 5 venue and shows for more insights.</h6> -->
+
+        </body>
+        </html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<style>
+     @import url(https://fonts.googleapis.com/css?family=Sniglet|Raleway:900);
+
+
+body, html{
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: 'Sniglet', cursive;
+}
+</style>
+    <title>Document</title>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/{{admin_name}}/summary"><strong>{{admin_name}}</strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse show" id="navbarBasic">
+            <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+              <!-- <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/{{name}}/create_venue"><strong>Create New Venue</strong> </a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="/log_out"><strong>Log Out</strong></a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li> -->
+            </ul>
+            <!-- <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form> -->
+          </div>
+        </div>
+      </nav>
+
+
+
+    <form action="/{{admin_name}}/{{venue_id}}/create_show" method="post" class="mb-3 mt-3">
+        <!-- <h4><label for="username" class="form-label ">Show Name:</label></h4> -->
+
+        <div class="form-floating mb-3 mt-3">   
+                 <input type="text" name="show_name" placeholder="Venue Name" id="show_name" class="form-control" required/>
+                 <label for="show_name" class="form-label"> Show Name</label>
+
+        </div>
+
+        <!-- <h4><label for="username" class="form-label ">Show Rating:</label></h4> -->
+        <div class="form-floating mb-3 mt-3">    
+                <input type="number" name="show_rating" placeholder="Venue place" id="show_rating"  class="form-control" required/>
+                <label for="show_rating" class="form-label">Show Rating</label>
+
+        </div>
+
+        <!-- <h4><label for="username" class="form-label ">Show Date:</label></h4> -->
+        <div class="form-floating mb-3 mt-3">     
+               <input type="date" name="show_date" placeholder="Date" id="show_date" class="form-control" required>
+               <label for="show_date" class="form-label">Show Date<label>
+
+        </div>
+
+        <!-- <h4><label for="username" class="form-label ">Show Time:</label></h4> -->
+        <div class="form-floating mb-3 mt-3">     
+               <input type="time" name="show_time" placeholder="Time" id="show_time" class="form-control" required>
+               <label for="show_time" class="form-label">Show Date</label>
+
+        </div>
+
+        <!-- <h4><label for="username" class="form-label ">Tags:</label></h4> -->
+        <div class="form-floating mb-3 mt-3">   
+            <input type="text" name="tags" placeholder="Tags" id="tags" class="form-control" required/>
+            <label for="tags" class="form-label"> Tags</label>
+
+   </div>
+
+        <!-- <h4><label for="username" class="form-label ">Price:</label></h4> -->
+        <div class="form-floating mb-3 mt-3">  
+                  <input type="number" name="show_price" id="show_price" placeholder="Price" class="form-control" required/>
+                  <label for="show_price" class="form-label">Price</label>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Show
+        </button>
+    </form>
+
+
+
+
+
+    <!-- <h1>{{venue_name}}</h1>
+    <h1>Venue ID : {{venue_id}}</h1>
+    <h1>Current User : {{admin_name}}</h1>
+
+    <form action="/{{admin_name}}/{{venue_id}}/create_show" method="post">
+
+        <input type="text" name="show_name" placeholder= "Show Name" id="" required>
+        <input type="number" name="show_rating" placeholder="Show Rating" id="" required> 
+        <input type="datetime" name="show_timing" placeholder="Timing" id="">
+        <input type="date" name="show_date" placeholder="Date" id="" required>
+        <input type="time" name="show_time" placeholder="Time" id="" required>
+        <input type="text" name="tags" placeholder="Tags" id="" required>
+        <input type="number" name="show_price" placeholder="Price" id="" required>
+        <button type="submit">Create Show</button> -->
+
+
+    </form>
+</body>
+</html>

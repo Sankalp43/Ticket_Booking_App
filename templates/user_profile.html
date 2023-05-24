@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <title>Document</title>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Sniglet|Raleway:900);
+
+
+body, html{
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: 'Sniglet', cursive;
+}
+h1{
+	font-weight: normal;
+	font-size: 3.5em;
+	font-family: 'Raleway', sans-serif;
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 500px;
+	color: rgb(82, 173, 238);
+	text-align: center;
+
+}
+    </style>
+</head>
+<body>
+
+
+   
+    <div>
+
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/{{id}}/user_profile"><strong>{{user_name}}</strong></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse show" id="navbarBasic">
+                <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                  <!-- <li class="nav-item">
+
+                    <a class="nav-link active" aria-current="page" href="/{{admin_name}}/{{venue_id}}/create_show"><strong>Create New Show</strong> </a>
+                  </li> -->
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="/{{id}}/venue_list" ><strong>Go Back to Venues</strong></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/log_out"><strong>Log Out</strong></a>
+                  </li>
+                  <!-- <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                  </li> -->
+                </ul>
+                <!-- <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+              </div>
+            </div>
+          </nav>
+</div>
+
+
+
+
+          
+<!-- <header>
+	<h1>Contact us</h1>
+</header> -->
+          <header><h1 style="text-align: center;"> Hey, {{user_name}}</h1></header>
+          <h3 style="text-align: center;"> {{user_mail}}</h3>
+
+
+
+
+          <div class="alert alert-primary" role="alert">
+            <h5>Total Bookings : {{bookings|length}}</h5>
+          </div>
+        <!-- <h2>Total Bookings : {{bookings|length}}</h2> -->
+    </div>
+    <!-- <br>
+    <hr> -->
+    <!-- <h2 style="text-align: center;">----------------------------My Bookings-----------------------</h2> -->
+
+    <div class="card text-primary bg-warning mb-3">
+        <div style="text-align: center; background-color: salmon;" class="card-header"><h2>Bookings</h2></div>
+        <div class="card-body">
+          <!-- <h5 class="card-title">Info card title</h5> -->
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+          <div>
+            {% if bookings %}
+            <div>
+              {% for booking in bookings %}
+  
+              <div class="card">
+                  <div class="card-header bg-dark">
+                   <h4><strong>Show :</strong>{{ booking.booking_show }} &emsp;&emsp; {{ booking.booking_rating | round(0) }}★  &emsp; &emsp; &emsp; &emsp; <strong>Date : </strong> {{ booking.booking_date }}    &emsp; &emsp; &emsp; &emsp;   <strong>Time : </strong>   {{booking.booking_time }}    </h4> 
+                  </div>
+                  <div class="card-body bg-light text-success">
+                    <h5 class="card-title"><strong>Venue : </strong> {{booking.booking_venue}}</h5>
+                    <p class="card-text"><strong>Tags :</strong> {{booking.booking_tags}}</p>
+                    <p class="card-text"><strong>Persons :</strong> {{booking.booking_count}}</p>
+                    <p class="card-text"><strong>Total Price :</strong>  {{booking.booking_total}}</p>
+  
+                    <a href="/{{id}}/{{booking.booking_venue}}/{{booking.booking_show}}/{{booking.booking_id}}/cancel_booking" class="btn btn-outline-danger">Cancel Booking</a>
+                    
+                  </div>
+                  
+                </div>
+  
+  
+                <br><br>
+                {% endfor %}
+            </div>
+            {% else %}
+  
+            <div class="alert alert-warning">
+              <h3><strong>You Haven't Booked any shows yet. </strong></h3>
+              <strong><p> Please Book some shows.</p></strong> 
+              <!-- <h5>Please check other Venues.</h5> -->
+              <a href="/{{id}}/venue_list" class="btn btn-outline-info">Go to venues to Book Some shows.</a>
+
+            </div>
+            <!-- <a href="/{{id}}/venue_list" class="btn btn-outline-info">Go to venues to Book Some shows.</a> -->
+  
+           
+              {% endif %}
+          </div>
+        </div>
+      </div>
+   
+
+
+
+
+
+
+
+        <!-- <h4>Oops!! No Shows in this Venue. Please check other Venues.</h4> -->
+
+
+
+
+
+
+
+
+    <!-- {% if bookings %}
+    <div>
+        {% for booking in bookings %}
+        <div>
+            <h4>{{booking.booking_user}}</h4>
+            <h4>{{booking.booking_venue}}</h4>
+            <h4>{{booking.booking_show}}</h4>
+            <h4>{{booking.booking_count}}</h4>
+            <h4>{{booking.booking_total}}</h4>
+
+            <h3><a href="/{{id}}/{{booking.booking_venue}}/{{booking.booking_show}}/{{booking.booking_id}}/cancel_booking">Cancel Booking</a></h3> -->
+            <!-- <h3><a href="">Edit Booking</a> </h3> -->
+
+            <!-- <br>
+            
+
+        </div>
+        <hr>
+        {% endfor %}
+    </div>
+{% else %}
+    <h3>You Haven't Booked any shows yet. Please Book some shows.</h3>
+    <h2> <a href="/{{id}}/venue_list">Go to venues to Book Some shows.</a></h2>
+{% endif %} -->
+    <!-- <div>
+        {% for booking in bookings %}
+        <div>
+            <h4>{{booking.booking_user}}</h4>
+            <h4>{{booking.booking_venue}}</h4>
+            <h4>{{booking.booking_show}}</h4>
+            <h4>{{booking.booking_count}}</h4>
+            <h4>{{booking.booking_total}}</h4>
+
+            <h3><a href="/{{id}}/{{booking.booking_venue}}/{{booking.booking_show}}/{{booking.booking_id}}/cancel_booking">Cancel Booking</a></h3>
+        
+
+            <br>
+            
+
+        </div>
+        <hr>
+        {% endfor %}
+    </div> -->
+    
+</body>
+</html>

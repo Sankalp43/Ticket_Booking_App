@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+<style>
+         @import url(https://fonts.googleapis.com/css?family=Sniglet|Raleway:900);
+
+
+body, html{
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font-family: 'Sniglet', cursive;
+}
+</style>
+    <title>Document</title>
+</head>
+<body>
+   
+        <!-- <h1>User Id :{{user_id}}</h1>
+        <h1>Venue Id :{{venue_id}}</h1>
+        <h1>Admin name:{{admin_name}}</h1>
+        <h1>Venue name :{{venue_name}}</h1> -->
+
+
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/{{admin_name}}/summary"><strong>{{admin_name}}</strong></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBasic" aria-controls="navbarBasic" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse show" id="navbarBasic">
+                <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+                  <li class="nav-item">
+
+                    <a class="nav-link active text-success" aria-current="page" href="/{{admin_name}}/{{venue_id}}/create_show"><strong>Create New Show</strong> </a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="/{{admin_name}}/venue_list_admin"><strong>Go Back to Venues</strong></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/log_out"><strong>Log Out</strong></a>
+                  </li>
+ 
+                  <!-- <li class="nav-item">
+                    <a class="nav-link disabled" href="/{{admin_name}}/venue_list_admin" tabindex="-1" aria-disabled="true">Go Back to Venues.</a>
+                  </li> -->
+                </ul>
+                <!-- <form class="d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+              </div>
+            </div>
+          </nav>
+
+
+
+
+
+
+
+          {% if shows %}
+          <div>
+            {% for show in shows %}
+
+            <div class="card">
+                <div class="card-header bg-primary">
+                 <h4><strong>Show :</strong>  {{show.show_name}}  </h4>  <h6>{{show.show_rating|round(1)}}★</h6>
+                </div>
+                <div class="card-body bg-warning">
+                  <h5 class="card-title"><strong>Date : </strong> {{show.show_date}}</h5>
+                  <p class="card-text"><strong>Time :</strong>  {{show.show_time}}</p>
+                  <p class="card-text"><strong>Tags :</strong>  {{show.show_tags}}</p>
+                  <p class="card-text"><strong>Price :</strong>  {{show.show_price}}</p>
+                  <a href="/{{admin_name}}/{{venue_id}}/{{show.show_id}}/edit_show" class="btn btn-secondary">Edit The Show</a>
+                  <a href="/{{admin_name}}/{{venue_id}}/{{show.show_id}}/remove_show" class="btn btn-danger">Remove The Show</a>
+
+                  <!-- <a href="/{{name}}/{{show.show_id}}/remove_venue" class="btn btn-danger">Remove Venue</a> -->
+
+
+                </div>
+                
+              </div>
+              <br><br>
+              {% endfor %}
+          </div>
+
+          {% else %}
+
+          <div class="alert alert-warning">
+            <h3><strong>Oops!! No Shows in this Venue. </strong></h3>
+            <!-- <strong><p>Please Book another show.</p></strong>  -->
+            <h5>Please See other Venues or Create Some Shows.</h5>
+          </div>
+          <a href="/{{admin_name}}/venue_list_admin" class="btn btn-outline-warning">Go Back To Venues</a>
+          <a href="/{{admin_name}}/{{venue_id}}/create_show" class="btn btn-outline-success">Create New Show</a>
+
+
+
+<!-- <div class="toast toast-demo fade show" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body">
+       <strong> Oops!! No Shows in this Venue. Please See other Venues or Create Some Shows.</strong>
+              <div class="mt-2 pt-2 border-top">
+
+        <a class="btn btn-secondary btn-sm" href="/{{admin_name}}/venue_list_admin"><strong>Go Back To Venues</strong></a> -->
+
+        <!-- <button type="button" class="btn btn-primary btn-sm">Take action</button> -->
+        <!-- <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button> -->
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+            <!-- <h4>Oops!! No Shows in this Venue. Please check other Venues.</h4> -->
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div>
+            {% for show in shows %}
+            <div>
+                <h4>{{show.show_id}}</h4>
+                <h4>{{show.show_name}}</h4>
+                <h4>{{show.show_rating}}</h4>
+                <h4>{{show.show_date}}</h4>
+                <h4>{{show.show_time}}</h4>
+                <h4>{{show.show_tags}}</h4>
+                <h4>{{show.show_price}}</h4>
+                <h3><a href="/{{venue_id}}/{{show.show_id}}/remove_show">Remove Show</a></h3>
+                
+
+            </div>
+            <hr>
+            {% endfor %}
+        </div>  -->
+
+        <!-- <h2>Create New Show -----/> <a href="/{{venue_id}}/create_show">Click Here To Create another Show.</a></h2> -->
+  
+</body>
+</html>
